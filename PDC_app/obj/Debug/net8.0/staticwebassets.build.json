@@ -1,0 +1,949 @@
+{
+  "Version": 1,
+  "Hash": "1ngB1jaRmoNcwX7/Agykp8u1i+gePAlVzv83SAvIljQ=",
+  "Source": "PDC_app",
+  "BasePath": "_content/PDC_app",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "PDC_app\\wwwroot",
+      "Source": "PDC_app",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\css\\styles.css",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "css/styles#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "cv0pk9lhlz",
+      "Integrity": "WEe+UFyigzX0xj2hE27e7crzz15wCexO+w+bb0GAWDk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\data\\products.json",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "data/products#[.{fingerprint}]?.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5ydm0swy4y",
+      "Integrity": "HWB8qLe7MAIC1IixZ5Qnq3XN6ysUNxHX2Kg7aG/GPBU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\data\\products.json"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\index.html",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "idrqzvwmrc",
+      "Integrity": "FmykucsS93U30GJLd2Mzm9upsikvNHUL2xGY4TDOJ1w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\app.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/app#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "w8h3w9i6nw",
+      "Integrity": "EP7hly29nHhzVM43gKm5yhA/Jrfp+Uo6zb117nbwJCM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\app.js"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\admin.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/modules/admin#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "m8zzmkcqn6",
+      "Integrity": "2nxnefDqstqO4PsTZkOFuH6oEvoQ2tYnL+WmAUCoqTc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modules\\admin.js"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\refund.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/modules/refund#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n01zhygwmq",
+      "Integrity": "52jN1qdmOgRg4QA4YU+JAYRf9yhnF7mdyh/Ag02rX/Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modules\\refund.js"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\schedule.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/modules/schedule#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "17bu9unced",
+      "Integrity": "0xqtRNo0KpDLr8jmjmuWxLtDWDFXBHG+pPyvevw/s+E=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modules\\schedule.js"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\templates.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/modules/templates#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k5k83gbkfu",
+      "Integrity": "COu2XHqg9YBd9h2LDNB1gGCYDNHDwptDwk+g5wzSz/U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modules\\templates.js"
+    },
+    {
+      "Identity": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\upgrade.js",
+      "SourceId": "PDC_app",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\",
+      "BasePath": "_content/PDC_app",
+      "RelativePath": "js/modules/upgrade#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b6dlaxohhz",
+      "Integrity": "DZwIitfYApX+gss+HoINil8VMAd1a4ZEOL9J4VovL/U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\modules\\upgrade.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/styles.css",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WEe+UFyigzX0xj2hE27e7crzz15wCexO+w+bb0GAWDk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WEe+UFyigzX0xj2hE27e7crzz15wCexO+w+bb0GAWDk="
+        }
+      ]
+    },
+    {
+      "Route": "css/styles.cv0pk9lhlz.css",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\css\\styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "38110"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WEe+UFyigzX0xj2hE27e7crzz15wCexO+w+bb0GAWDk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "cv0pk9lhlz"
+        },
+        {
+          "Name": "label",
+          "Value": "css/styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WEe+UFyigzX0xj2hE27e7crzz15wCexO+w+bb0GAWDk="
+        }
+      ]
+    },
+    {
+      "Route": "data/products.5ydm0swy4y.json",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\data\\products.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HWB8qLe7MAIC1IixZ5Qnq3XN6ysUNxHX2Kg7aG/GPBU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5ydm0swy4y"
+        },
+        {
+          "Name": "label",
+          "Value": "data/products.json"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HWB8qLe7MAIC1IixZ5Qnq3XN6ysUNxHX2Kg7aG/GPBU="
+        }
+      ]
+    },
+    {
+      "Route": "data/products.json",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\data\\products.json",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/json"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HWB8qLe7MAIC1IixZ5Qnq3XN6ysUNxHX2Kg7aG/GPBU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HWB8qLe7MAIC1IixZ5Qnq3XN6ysUNxHX2Kg7aG/GPBU="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FmykucsS93U30GJLd2Mzm9upsikvNHUL2xGY4TDOJ1w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FmykucsS93U30GJLd2Mzm9upsikvNHUL2xGY4TDOJ1w="
+        }
+      ]
+    },
+    {
+      "Route": "index.idrqzvwmrc.html",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55442"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FmykucsS93U30GJLd2Mzm9upsikvNHUL2xGY4TDOJ1w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "idrqzvwmrc"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FmykucsS93U30GJLd2Mzm9upsikvNHUL2xGY4TDOJ1w="
+        }
+      ]
+    },
+    {
+      "Route": "js/app.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\app.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EP7hly29nHhzVM43gKm5yhA/Jrfp+Uo6zb117nbwJCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EP7hly29nHhzVM43gKm5yhA/Jrfp+Uo6zb117nbwJCM="
+        }
+      ]
+    },
+    {
+      "Route": "js/app.w8h3w9i6nw.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\app.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22681"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EP7hly29nHhzVM43gKm5yhA/Jrfp+Uo6zb117nbwJCM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "w8h3w9i6nw"
+        },
+        {
+          "Name": "label",
+          "Value": "js/app.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EP7hly29nHhzVM43gKm5yhA/Jrfp+Uo6zb117nbwJCM="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/admin.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\admin.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "337"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2nxnefDqstqO4PsTZkOFuH6oEvoQ2tYnL+WmAUCoqTc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2nxnefDqstqO4PsTZkOFuH6oEvoQ2tYnL+WmAUCoqTc="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/admin.m8zzmkcqn6.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\admin.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "337"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2nxnefDqstqO4PsTZkOFuH6oEvoQ2tYnL+WmAUCoqTc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:54 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "m8zzmkcqn6"
+        },
+        {
+          "Name": "label",
+          "Value": "js/modules/admin.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2nxnefDqstqO4PsTZkOFuH6oEvoQ2tYnL+WmAUCoqTc="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/refund.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\refund.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"52jN1qdmOgRg4QA4YU+JAYRf9yhnF7mdyh/Ag02rX/Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-52jN1qdmOgRg4QA4YU+JAYRf9yhnF7mdyh/Ag02rX/Y="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/refund.n01zhygwmq.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\refund.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6184"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"52jN1qdmOgRg4QA4YU+JAYRf9yhnF7mdyh/Ag02rX/Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n01zhygwmq"
+        },
+        {
+          "Name": "label",
+          "Value": "js/modules/refund.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-52jN1qdmOgRg4QA4YU+JAYRf9yhnF7mdyh/Ag02rX/Y="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/schedule.17bu9unced.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\schedule.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "40066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0xqtRNo0KpDLr8jmjmuWxLtDWDFXBHG+pPyvevw/s+E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "17bu9unced"
+        },
+        {
+          "Name": "label",
+          "Value": "js/modules/schedule.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0xqtRNo0KpDLr8jmjmuWxLtDWDFXBHG+pPyvevw/s+E="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/schedule.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\schedule.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "40066"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0xqtRNo0KpDLr8jmjmuWxLtDWDFXBHG+pPyvevw/s+E=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0xqtRNo0KpDLr8jmjmuWxLtDWDFXBHG+pPyvevw/s+E="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/templates.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\templates.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"COu2XHqg9YBd9h2LDNB1gGCYDNHDwptDwk+g5wzSz/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 06:43:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-COu2XHqg9YBd9h2LDNB1gGCYDNHDwptDwk+g5wzSz/U="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/templates.k5k83gbkfu.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\templates.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2399"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"COu2XHqg9YBd9h2LDNB1gGCYDNHDwptDwk+g5wzSz/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 07 Sep 2025 06:43:58 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k5k83gbkfu"
+        },
+        {
+          "Name": "label",
+          "Value": "js/modules/templates.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-COu2XHqg9YBd9h2LDNB1gGCYDNHDwptDwk+g5wzSz/U="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/upgrade.b6dlaxohhz.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\upgrade.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8995"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DZwIitfYApX+gss+HoINil8VMAd1a4ZEOL9J4VovL/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b6dlaxohhz"
+        },
+        {
+          "Name": "label",
+          "Value": "js/modules/upgrade.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DZwIitfYApX+gss+HoINil8VMAd1a4ZEOL9J4VovL/U="
+        }
+      ]
+    },
+    {
+      "Route": "js/modules/upgrade.js",
+      "AssetFile": "D:\\DOWLOAD\\ĐỒ án\\PDC_app\\PDC_app\\wwwroot\\js\\modules\\upgrade.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8995"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DZwIitfYApX+gss+HoINil8VMAd1a4ZEOL9J4VovL/U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 08 Sep 2025 08:38:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DZwIitfYApX+gss+HoINil8VMAd1a4ZEOL9J4VovL/U="
+        }
+      ]
+    }
+  ]
+}
