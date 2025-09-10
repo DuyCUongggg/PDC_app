@@ -1,4 +1,4 @@
-﻿// ===== REFUND =====
+// ===== REFUND =====
 let selectedRefundProduct = null;
 
 function formatDMY(d) {
