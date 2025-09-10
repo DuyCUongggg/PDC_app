@@ -105,7 +105,10 @@ function calculateUpgrade() {
     let newTotalDays = selectedNewProduct.duration; if (selectedNewProduct.durationUnit === 'tháng') newTotalDays *= 30;
     const remainingDays = currentTotalDays - daysUsed; if (remainingDays <= 0) { showNotification('Gói hiện tại đã hết hạn!', 'error'); return; }
     const refundAmount = Math.round((remainingDays / currentTotalDays) * selectedCurrentProduct.price);
-    const amountToPay = selectedNewProduct.price - refundAmount;
+    const topUpAmount = Math.max(0, selectedNewProduct.price - refundAmount);
+    const surplusAmount = Math.max(0, refundAmount - selectedNewProduct.price);
+    const pricePerDayNew = newTotalDays > 0 ? (selectedNewProduct.price / newTotalDays) : 0;
+    const extraDays = pricePerDayNew > 0 ? Math.floor(surplusAmount / pricePerDayNew) : 0;
 
     document.getElementById('upgradeBreakdown').innerHTML = `
         <div class="calc-row"><span class="calc-label">📦 Gói hiện tại:</span><span class="calc-value">${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})</span></div>
@@ -113,15 +116,23 @@ function calculateUpgrade() {
         <div class="calc-row"><span class="calc-label">📅 Khoảng tính:</span><span class="calc-value">${formatDMY(startDate)} → ${formatDMY(endDate)}</span></div>
         <div class="calc-row"><span class="calc-label">⏰ Đã sử dụng:</span><span class="calc-value">${daysUsed} ngày</span></div>
         <div class="calc-row"><span class="calc-label">📅 Còn lại:</span><span class="calc-value">${remainingDays} ngày</span></div>
-        <div class="calc-row"><span class="calc-label">💸 Hoàn tiền gói cũ:</span><span class="calc-value text-success">${formatPrice(refundAmount)}đ</span></div>
+        <div class="calc-row"><span class="calc-label">💸 Giá trị còn lại (ước tính):</span><span class="calc-value text-success">${formatPrice(refundAmount)}đ</span></div>
         <div class="calc-row"><span class="calc-label">🆕 Gói muốn đổi:</span><span class="calc-value">${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})</span></div>
         <div class="calc-row"><span class="calc-label">💰 Giá gói mới:</span><span class="calc-value">${formatPrice(selectedNewProduct.price)}đ</span></div>
-        <div class="calc-row"><span class="calc-label">🧮 SỐ TIỀN CẦN BÙ:</span><span class="calc-value ${amountToPay > 0 ? 'text-danger' : 'text-success'}">${formatPrice(Math.abs(amountToPay))}đ</span></div>`;
+        <div class="calc-row"><span class="calc-label">🧮 SỐ TIỀN CẦN BÙ THÊM:</span><span class="calc-value ${topUpAmount > 0 ? 'text-danger' : 'text-success'}">${formatPrice(topUpAmount)}đ</span></div>
+        ${surplusAmount > 0 ? `<div class="calc-row"><span class="calc-label">⏳ Quy đổi thêm thời hạn:</span><span class="calc-value text-success">${extraDays} ngày</span></div>` : ''}`;
 
-    const customerMessage = amountToPay > 0 ?
-        `Kính gửi Quý khách,\n\nCentrix xin thông tin về việc đổi gói dịch vụ như sau:\n- Gói hiện tại: ${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})\n- Thời gian tính đổi: ${formatDMY(startDate)} → ${formatDMY(endDate)}\n- Số ngày đã dùng: ${daysUsed} ngày\n- Số tiền hoàn gói hiện tại: ${formatPrice(refundAmount)}đ\n\nGói muốn đổi: ${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})\nGiá gói mới: ${formatPrice(selectedNewProduct.price)}đ\n\nSố tiền cần bù: ${formatPrice(amountToPay)}đ\n\nVui lòng thanh toán để hoàn tất đổi gói. Centrix sẵn sàng hỗ trợ nếu Quý khách cần thêm thông tin.\nTrân trọng.`
-        :
-        `Kính gửi Quý khách,\n\nCentrix xin thông tin về việc đổi gói dịch vụ như sau:\n- Gói hiện tại: ${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})\n- Thời gian tính đổi: ${formatDMY(startDate)} → ${formatDMY(endDate)}\n- Số ngày đã dùng: ${daysUsed} ngày\n- Số tiền hoàn gói hiện tại: ${formatPrice(refundAmount)}đ\n\nGói muốn đổi: ${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})\nGiá gói mới: ${formatPrice(selectedNewProduct.price)}đ\n\nSố tiền thừa sẽ hoàn lại: ${formatPrice(Math.abs(amountToPay))}đ trong 1–2 ngày làm việc.\nTrân trọng.`;
+    // Kết luận theo từng trường hợp thanh toán
+    let paymentConclusion = '';
+    if (topUpAmount > 0) {
+        paymentConclusion = `\n\nSố tiền cần thanh toán thêm: ${formatPrice(topUpAmount)}đ\nVui lòng thanh toán để hoàn tất đổi gói.`;
+    } else if (surplusAmount > 0) {
+        paymentConclusion = `\n\nKhông cần thanh toán thêm. Phần chênh lệch được quy đổi thành ${extraDays} ngày sử dụng thêm.`;
+    } else {
+        paymentConclusion = `\n\nKhông cần thanh toán thêm. Giá hai gói tương đương trong giai đoạn tính.`;
+    }
+
+    const customerMessage = `Kính gửi Quý khách,\n\nCentrix xin thông tin về việc đổi gói dịch vụ như sau:\n- Gói hiện tại: ${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})\n- Thời gian tính đổi: ${formatDMY(startDate)} → ${formatDMY(endDate)}\n- Số ngày đã dùng: ${daysUsed} ngày\n- Giá trị còn lại (ước tính) của gói hiện tại: ${formatPrice(refundAmount)}đ\n\nGói muốn đổi: ${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})\nGiá gói mới: ${formatPrice(selectedNewProduct.price)}đ${surplusAmount > 0 ? `\nPhần dư quy đổi thêm thời hạn: ${extraDays} ngày` : ''}${paymentConclusion}\n\nCentrix sẵn sàng hỗ trợ nếu Quý khách cần thêm thông tin.\nTrân trọng.`;
 
     document.getElementById('upgradeCustomerContent').textContent = customerMessage;
     document.getElementById('upgradeResult').style.display = 'block';
