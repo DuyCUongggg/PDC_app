@@ -1,13 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>AI Sales Assistant</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css?v=github-pages" />
+    <link rel="stylesheet" href="css/styles.css?v=0.0.2.5" />
+    <style>
+        /* Force logo image visible and hide legacy emoji icon */
+        .logo-container .logo { display: none !important; }
+        .logo-container .logo-img { width: 28px; height: 28px; display: inline-block; object-fit: contain; margin-right: 10px; }
+    </style>
+    <!-- Favicon -->
+    <link rel="icon" href="/img/cat-solid-full.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/img/cat-solid-full.svg" type="image/svg+xml" />
 </head>
 <body>
     <!-- App Shell -->
@@ -16,7 +27,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo-container">
-                    <div class="logo">🚀</div>
+                    <img src="/img/cat-solid-full.svg" alt="Logo" class="logo-img" width="28" height="28" />
                     <div class="brand-info">
                         <h1>AI Sales</h1>
                         <span class="brand-subtitle">Assistant</span>
@@ -50,6 +61,7 @@
                         <span class="nav-label">Đổi gói</span>
                     </button>
                 </div>
+                
                 
                 <div class="nav-section">
                     <h3 class="nav-section-title">Quản lý</h3>
@@ -713,6 +725,7 @@
                         </div>
                     </div>
                 </section>
+
             </div>
         </main>
 
@@ -982,13 +995,15 @@
     <input type="file" id="importFile" style="display:none" onchange="handleImport()" />
 
     <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/version.js"></script>
     <script src="js/app.js"></script>
     <script src="js/modules/refund.js"></script>
     <script src="js/modules/admin.js"></script>
     <script src="js/modules/templates.js"></script>
     <script src="js/modules/upgrade.js"></script>
     <script src="js/modules/schedule.js"></script>
-    <div id="versionBadge" class="version-badge">v0</div>
+    <div id="versionBadge" class="version-badge">v0.0.2.5</div>
     <div id="toastContainer" class="toast-container"></div>
 </body>
 </html>
