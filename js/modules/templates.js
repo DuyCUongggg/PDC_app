@@ -1,4 +1,4 @@
-﻿// ===== TEMPLATES =====
+// ===== TEMPLATES =====
 let selectedTemplateProduct = null;
 
 (function initTpl() {
