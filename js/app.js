@@ -1,4 +1,4 @@
-﻿
+
     // ===== DROPDOWN MENU HANDLING =====
     function initDropdowns() {
         // Handle file menu dropdown
@@ -560,10 +560,7 @@
         // Show current version  
         showCurrentVersion();
         
-        // Manual version bump for this fix (v0.0.2.4 - Dark mode upgrade refresh button)
-        localStorage.setItem('pdc_app_version', '0.0.2.4');
-        const el = document.getElementById('versionBadge');
-        if (el) el.textContent = 'v0.0.2.4';
+        // Version is now managed by version.js
         
         // Bind refresh button (safety)
         const refreshBtn = document.getElementById('refundRefreshBtn');
