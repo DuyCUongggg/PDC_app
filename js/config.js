@@ -10,7 +10,7 @@ const APP_CONFIG = {
         HEIGHT: 28,
         
         // Logo path (relative to wwwroot)
-        PATH: '/img/',
+        PATH: 'img/',
         
         // Full logo URL (automatically generated)
         get URL() {
