@@ -3,7 +3,7 @@ const APP_CONFIG = {
     // Logo settings - Change these to update logo throughout the app
     LOGO: {
         // Main logo file (SVG recommended for scalability)
-        FILE: 'cat-solid-full.svg',
+        FILE: 'paw-solid-full.svg',
         
         // Logo dimensions
         WIDTH: 28,
