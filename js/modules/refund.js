@@ -91,7 +91,7 @@ function calculateRefund() {
        <div class="calc-row"><span class="calc-label">⏰ Tổng thời hạn:</span><span class="calc-value">${totalDays} ngày (${selectedRefundProduct.duration} ${selectedRefundProduct.durationUnit})</span></div>
        <div class="calc-row"><span class="calc-label">📅 Khoảng tính:</span><span class="calc-value">${formatDMY(s)} → ${formatDMY(e)}</span></div>
        <div class="calc-row"><span class="calc-label">🎉 Đặc biệt:</span><span class="calc-value text-success">Mua cùng ngày - Hoàn 100%</span></div>
-       <div class="calc-row"><span class="calc-label">💸 SỐ TIỀN HOÀN:</span><span class="calc-value text-success">${formatPrice(fullRefund)}đ</span></div>`;
+       <div class="calc-row calc-total"><span class="calc-label">💸 SỐ TIỀN HOÀN:</span><span class="calc-value text-success">${formatPrice(fullRefund)}đ</span></div>`;
         const cc = document.getElementById('refundCustomerContent');
         if (cc) cc.textContent =
             `Kính gửi Quý khách,\n\nCentrix xin thông tin kết quả hoàn tiền cho gói ${selectedRefundProduct.name} ${selectedRefundProduct.duration} ${selectedRefundProduct.durationUnit} như sau:\n- Khoảng thời gian tính: ${formatDMY(s)} → ${formatDMY(e)}\n- Số ngày còn lại: ${daysRemaining} ngày\n- Số tiền hoàn dự kiến: ${formatPrice(fullRefund)}đ\n\nCentrix sẽ tiến hành xử lý và chuyển hoàn trong vòng 1–2 ngày làm việc. Nếu cần hỗ trợ thêm, Quý khách vui lòng phản hồi để Centrix phục vụ tốt hơn.\nTrân trọng.`;
@@ -127,7 +127,7 @@ function calculateRefund() {
      <div class="calc-row"><span class="calc-label">🧮 Đơn giá/ngày:</span><span class="calc-value">${formatPrice(perDay)}đ</span></div>
      <div class="calc-row"><span class="calc-label">📅 Đã sử dụng:</span><span class="calc-value">${daysUsed} ngày</span></div>
      <div class="calc-row"><span class="calc-label">📅 Còn lại:</span><span class="calc-value text-success">${daysRemaining} ngày</span></div>
-     <div class="calc-row"><span class="calc-label">💸 SỐ TIỀN HOÀN:</span><span class="calc-value text-success">${formatPrice(refund)}đ</span></div>`;
+     <div class="calc-row calc-total"><span class="calc-label">💸 SỐ TIỀN HOÀN:</span><span class="calc-value text-success">${formatPrice(refund)}đ</span></div>`;
     const cc2 = document.getElementById('refundCustomerContent');
     if (cc2) cc2.textContent =
         `Kính gửi Quý khách,\n\nCentrix xin thông tin kết quả hoàn tiền cho gói ${selectedRefundProduct.name} ${planText} như sau:\n- Khoảng thời gian tính: ${formatDMY(s)} → ${formatDMY(e)}\n- Số ngày còn lại: ${daysRemaining} ngày\n- Số tiền hoàn dự kiến: ${formatPrice(refund)}đ\n\nCentrix sẽ tiến hành xử lý và chuyển hoàn trong vòng 1–2 ngày làm việc. Nếu cần hỗ trợ thêm, Quý khách vui lòng phản hồi để Centrix phục vụ tốt hơn.\nTrân trọng.`;
@@ -267,11 +267,4 @@ function refreshRefundData() {
 window.refreshRefundData = refreshRefundData;
 
 // Debug function để force enable nút
-function forceEnableRefundBtn() {
-    const btn = document.getElementById('refundBtn');
-    if (btn) {
-        btn.disabled = false;
-        console.log('Force enabled refundBtn');
-    }
-}
-window.forceEnableRefundBtn = forceEnableRefundBtn;
+// Debug functions removed for performance

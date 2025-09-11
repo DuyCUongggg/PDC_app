@@ -83,7 +83,7 @@
         if (shouldShowToast) {
             createToast(msg, type, t);
         }
-        console.log('Notification:', msg, type);
+        // Log removed for performance
     }
 
     function createToast(message, type = 'success', duration = 3000) {

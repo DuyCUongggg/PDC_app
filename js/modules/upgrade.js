@@ -142,7 +142,7 @@ function calculateUpgrade() {
         <div class="calc-row"><span class="calc-label">💸 Giá trị còn lại (ước tính):</span><span class="calc-value text-success">${formatPrice(refundAmount)}đ</span></div>
         <div class="calc-row"><span class="calc-label">🆕 Gói muốn đổi:</span><span class="calc-value">${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})</span></div>
         <div class="calc-row"><span class="calc-label">💰 Giá gói mới:</span><span class="calc-value">${formatPrice(selectedNewProduct.price)}đ</span></div>
-        <div class="calc-row"><span class="calc-label">🧮 SỐ TIỀN CẦN BÙ THÊM:</span><span class="calc-value ${topUpAmount > 0 ? 'text-danger' : 'text-success'}">${formatPrice(topUpAmount)}đ</span></div>
+        <div class="calc-row calc-total"><span class="calc-label">🧮 SỐ TIỀN CẦN BÙ THÊM:</span><span class="calc-value ${topUpAmount > 0 ? 'text-danger' : 'text-success'}">${formatPrice(topUpAmount)}đ</span></div>
         ${surplusAmount > 0 ? `<div class="calc-row"><span class="calc-label">⏳ Tổng thời hạn sau đổi:</span><span class="calc-value text-success">${totalDays} ngày</span></div>` : ''}`;
 
     // Kết luận theo từng trường hợp thanh toán
@@ -194,11 +194,4 @@ function updateUpgradeTab() {
 window.updateUpgradeTab = updateUpgradeTab;
 
 // Debug function để force enable nút
-function forceEnableUpgradeBtn() {
-    const btn = document.getElementById('upgradeBtn');
-    if (btn) {
-        btn.disabled = false;
-        console.log('Force enabled upgradeBtn');
-    }
-}
-window.forceEnableUpgradeBtn = forceEnableUpgradeBtn;
+// Debug functions removed for performance

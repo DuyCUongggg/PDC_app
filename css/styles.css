@@ -2474,6 +2474,66 @@ section.tab-content.active {
     align-items: center;
 }
 
+/* ===== CALCULATION RESULT STYLES ===== */
+/* Calc rows - clean & optimized */
+.calc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.calc-row:last-child,
+.calc-total {
+    border-bottom: none;
+    font-weight: 600;
+    padding-top: 20px;
+}
+
+.calc-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.calc-value {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.calc-value.text-success { color: #059669; }
+.calc-value.text-danger { color: #dc2626; }
+
+@media (prefers-color-scheme: dark) {
+    .calc-row { border-bottom-color: #374151; }
+}
+
+/* Breakdown container */
+.breakdown {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 16px 0;
+}
+
+/* Customer content textarea */
+.refund-code, .upgrade-code {
+    width: 100%;
+    min-height: 200px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    resize: vertical;
+    white-space: pre-wrap;
+}
+
 /* ===== NOTES MODULE ===== */
 .notes-card {
     margin-bottom: 0;
@@ -2623,41 +2683,31 @@ section.tab-content.active {
 .notes-container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
-    padding: 16px 0;
+    gap: 16px;
+    padding: 8px 0;
 }
 
 .note-item {
     background: #ffffff;
-    border: 3px solid #e2e8f0;
-    border-radius: 24px;
-    padding: 28px;
-    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.2s ease;
     position: relative;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
     .note-item {
-        background: #1e293b;
-        border: 3px solid #334155;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        background: #1f2937;
+        border: 1px solid #374151;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
 }
 
-.note-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, var(--border-color) 20%, var(--primary-color) 50%, var(--border-color) 80%, transparent 100%);
-    border-radius: 1px;
-}
+/* Removed separator for cleaner look */
 
 .note-item::before {
     content: '';
@@ -2671,16 +2721,16 @@ section.tab-content.active {
 }
 
 .note-item:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: #3b82f6;
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
 /* Dark theme hover */
 @media (prefers-color-scheme: dark) {
     .note-item:hover {
         border-color: #60a5fa;
-        box-shadow: 0 8px 30px rgba(96, 165, 250, 0.2);
+        box-shadow: 0 4px 12px rgba(96, 165, 250, 0.2);
     }
 }
 
@@ -2783,44 +2833,41 @@ section.tab-content.active {
 
 .note-text {
     color: #374151;
-    line-height: 1.8;
-    font-size: 20px;
+    line-height: 1.6;
+    font-size: 15px;
     white-space: pre-wrap;
     word-break: break-word;
-    background: #f8fafc;
-    padding: 24px;
-    border-radius: 18px;
-    font-weight: 500;
-    letter-spacing: 0.2px;
-    border: 2px solid #e2e8f0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    font-family: 'Inter', 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    position: relative;
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 400;
+    border: 1px solid #e5e7eb;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 12px 0;
 }
 
 /* Dark theme cho note text */
 @media (prefers-color-scheme: dark) {
     .note-text {
-        color: #f1f5f9;
-        background: #0f172a;
-        border: 2px solid #334155;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        color: #e5e7eb;
+        background: #111827;
+        border: 1px solid #374151;
     }
 }
 
 .note-footer {
-    background: #f1f5f9;
-    border-top: 2px solid #e2e8f0;
-    padding: 20px;
-    margin: 20px -28px -28px -28px;
-    border-radius: 0 0 24px 24px;
+    background: #f8fafc;
+    border-top: 1px solid #e5e7eb;
+    padding: 12px;
+    margin: 12px -20px -20px -20px;
+    border-radius: 0 0 16px 16px;
 }
 
 /* Dark theme footer */
 @media (prefers-color-scheme: dark) {
     .note-footer {
-        background: #0f172a;
-        border-top: 2px solid #334155;
+        background: #111827;
+        border-top: 1px solid #374151;
     }
 }
 
