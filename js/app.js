@@ -1,4 +1,4 @@
-
+﻿
     // ===== DROPDOWN MENU HANDLING =====
     function initDropdowns() {
         // Handle file menu dropdown

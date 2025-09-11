@@ -1,13 +1,32 @@
-{
+﻿{
   "metadata": {
     "version": "1.0",
-    "lastUpdated": "2025-08-24T10:30:00Z",
-    "totalProducts": 0,
+    "lastUpdated": "2025-09-11T11:30:00Z",
+    "totalProducts": 2,
     "appName": "AI Sales Assistant"
   },
   "categories": [
     "AI Services",
     "Công cụ"
   ],
-  "products": []
+  "products": [
+    {
+      "id": "chatgpt-team-001",
+      "name": "ChatGPT Team",
+      "duration": 1,
+      "durationUnit": "tháng",
+      "price": 145000,
+      "category": "AI Services",
+      "note": "Gói team cho ChatGPT"
+    },
+    {
+      "id": "claude-max-001", 
+      "name": "Claude Max",
+      "duration": 1,
+      "durationUnit": "tháng",
+      "price": 347500,
+      "category": "AI Services",
+      "note": "Gói cao cấp Claude"
+    }
+  ]
 }
