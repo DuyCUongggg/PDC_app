@@ -74,8 +74,68 @@
         return { duration: Number.isFinite(n) && n > 0 ? n : 0, unit: 'tháng' };
     }
     function showNotification(msg, type = 'success', t = 3000) { 
-        // Toast notification removed
+        // Create toast notification for important messages
+        const shouldShowToast = (
+            (type === 'success' && (msg.includes('Hoàn') || msg.includes('Đã tính'))) ||
+            (type === 'error' && (msg.includes('ngày') || msg.includes('trước')))
+        );
+        
+        if (shouldShowToast) {
+            createToast(msg, type, t);
+        }
         console.log('Notification:', msg, type);
+    }
+
+    function createToast(message, type = 'success', duration = 3000) {
+        // Remove existing toasts
+        const existingToasts = document.querySelectorAll('.toast-notification');
+        existingToasts.forEach(toast => toast.remove());
+
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = `toast-notification toast-${type}`;
+        toast.textContent = message;
+
+        // Add styles
+        Object.assign(toast.style, {
+            position: 'fixed',
+            top: '20px',
+            right: '20px',
+            padding: '12px 20px',
+            borderRadius: '8px',
+            color: 'white',
+            fontWeight: '500',
+            fontSize: '14px',
+            zIndex: '10000',
+            maxWidth: '300px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+            transform: 'translateX(100%)',
+            transition: 'transform 0.3s ease, opacity 0.3s ease',
+            opacity: '0'
+        });
+
+        // Set background color based on type
+        if (type === 'success') {
+            toast.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        } else if (type === 'error') {
+            toast.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+        }
+
+        // Add to page
+        document.body.appendChild(toast);
+
+        // Animate in
+        setTimeout(() => {
+            toast.style.transform = 'translateX(0)';
+            toast.style.opacity = '1';
+        }, 10);
+
+        // Auto remove
+        setTimeout(() => {
+            toast.style.transform = 'translateX(100%)';
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
     }
     function generateUUID() { return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8); return v.toString(16); }); }
 
@@ -107,7 +167,8 @@
             'templates': { title: 'Tạo Template', subtitle: 'Tạo nội dung template cho khách hàng' },
             'refund': { title: 'Tính hoàn tiền', subtitle: 'Tính toán số tiền hoàn lại cho khách hàng' },
             'upgrade': { title: 'Đổi gói sản phẩm', subtitle: 'Tính toán số tiền bù khi khách hàng đổi sang gói khác' },
-            'schedule': { title: 'Lịch làm việc', subtitle: 'Quản lý lịch làm việc của team 4 người' }
+            'schedule': { title: 'Lịch làm việc', subtitle: 'Quản lý lịch làm việc của team 4 người' },
+            'notes': { title: 'Ghi chú khách hàng', subtitle: 'Tạo và quản lý ghi chú cho từng khách hàng' }
         };
         
         const pageTitle = document.getElementById('pageTitle');
@@ -616,7 +677,8 @@
             console.log('updateRefundTab function not found!');
         }
         if (typeof updateUpgradeTab === 'function') updateUpgradeTab(); 
-        if (typeof updateScheduleTab === 'function') updateScheduleTab(); 
+        if (typeof updateScheduleTab === 'function') updateScheduleTab();
+        if (typeof updateNotesTab === 'function') updateNotesTab(); 
     }
 
     // Set today's date to input

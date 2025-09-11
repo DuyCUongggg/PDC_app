@@ -11,7 +11,15 @@ function formatDMY(d) {
 
 (function initRefund() {
     const s = document.getElementById('refundProductSearch');
-    s?.addEventListener('input', () => { searchProductsByName(s.value, 'refundSearchResults', 'selectRefundProduct'); selectedRefundProduct = null; updateRefundState(); updateRefundDisplay(); });
+    s?.addEventListener('input', () => { 
+        searchProductsByName(s.value, 'refundSearchResults', 'selectRefundProduct'); 
+        // Chỉ clear selection nếu input trống
+        if (!s.value.trim()) {
+            selectedRefundProduct = null; 
+            updateRefundState(); 
+            updateRefundDisplay();
+        }
+    });
     ['startDate', 'endDate'].forEach(id => document.getElementById(id)?.addEventListener('change', updateRefundState));
     const today = new Date(), start = new Date(); 
     start.setDate(today.getDate() - 7);
@@ -32,9 +40,14 @@ function selectRefundProduct(id) {
 window.selectRefundProduct = selectRefundProduct;
 
 function updateRefundState() {
-    const ok = !!(selectedRefundProduct && document.getElementById('startDate')?.value && document.getElementById('endDate')?.value);
+    const startDate = document.getElementById('startDate')?.value;
+    const endDate = document.getElementById('endDate')?.value;
+    const ok = !!(selectedRefundProduct && startDate && endDate);
+    
     const btn = document.getElementById('refundBtn');
-    if (btn) btn.disabled = !ok;
+    if (btn) {
+        btn.disabled = !ok;
+    }
 }
 function updateRefundDisplay() {
     const box = document.getElementById('refundSelectedProduct');
@@ -56,7 +69,7 @@ function calculateRefund() {
     const s = new Date(document.getElementById('startDate')?.value || '');
     const e = new Date(document.getElementById('endDate')?.value || '');
     if (isNaN(s) || isNaN(e)) return showNotification('Chọn đủ ngày!', 'error');
-    if (e <= s) return showNotification('Ngày kết thúc phải sau ngày bắt đầu!', 'error');
+    if (e < s) return showNotification('Ngày hoàn không thể trước ngày mua!', 'error');
 
     let totalDays = Number(selectedRefundProduct.duration) || 0;
     const unit = selectedRefundProduct.durationUnit === 'tháng' ? 'tháng' : 'ngày';
@@ -65,6 +78,27 @@ function calculateRefund() {
 
     const daysUsed = Math.ceil((e - s) / (1000 * 3600 * 24));
     const daysRemaining = totalDays - daysUsed;
+
+    // Kiểm tra nếu mua và hoàn cùng ngày (chỉ khi daysUsed = 0)
+    const isSameDay = daysUsed === 0;
+    
+    if (isSameDay) {
+        // Hoàn 100% nếu cùng ngày
+        const fullRefund = selectedRefundProduct.price;
+        const br = document.getElementById('refundBreakdown');
+        if (br) br.innerHTML =
+            `<div class="calc-row"><span class="calc-label">💰 Giá gói:</span><span class="calc-value">${formatPrice(selectedRefundProduct.price)}đ</span></div>
+       <div class="calc-row"><span class="calc-label">⏰ Tổng thời hạn:</span><span class="calc-value">${totalDays} ngày (${selectedRefundProduct.duration} ${selectedRefundProduct.durationUnit})</span></div>
+       <div class="calc-row"><span class="calc-label">📅 Khoảng tính:</span><span class="calc-value">${formatDMY(s)} → ${formatDMY(e)}</span></div>
+       <div class="calc-row"><span class="calc-label">🎉 Đặc biệt:</span><span class="calc-value text-success">Mua cùng ngày - Hoàn 100%</span></div>
+       <div class="calc-row"><span class="calc-label">💸 SỐ TIỀN HOÀN:</span><span class="calc-value text-success">${formatPrice(fullRefund)}đ</span></div>`;
+        const cc = document.getElementById('refundCustomerContent');
+        if (cc) cc.textContent =
+            `Kính gửi Quý khách,\n\nCentrix xin thông tin kết quả hoàn tiền cho gói ${selectedRefundProduct.name} ${selectedRefundProduct.duration} ${selectedRefundProduct.durationUnit} như sau:\n- Khoảng thời gian tính: ${formatDMY(s)} → ${formatDMY(e)}\n- Số ngày còn lại: ${daysRemaining} ngày\n- Số tiền hoàn dự kiến: ${formatPrice(fullRefund)}đ\n\nCentrix sẽ tiến hành xử lý và chuyển hoàn trong vòng 1–2 ngày làm việc. Nếu cần hỗ trợ thêm, Quý khách vui lòng phản hồi để Centrix phục vụ tốt hơn.\nTrân trọng.`;
+        const rr = document.getElementById('refundResult'); if (rr) rr.style.display = 'block';
+        showNotification('Đã tính hoàn tiền!', 'success');
+        return;
+    }
 
     if (daysRemaining <= 0) {
         const br = document.getElementById('refundBreakdown');
@@ -98,8 +132,7 @@ function calculateRefund() {
     if (cc2) cc2.textContent =
         `Kính gửi Quý khách,\n\nCentrix xin thông tin kết quả hoàn tiền cho gói ${selectedRefundProduct.name} ${planText} như sau:\n- Khoảng thời gian tính: ${formatDMY(s)} → ${formatDMY(e)}\n- Số ngày còn lại: ${daysRemaining} ngày\n- Số tiền hoàn dự kiến: ${formatPrice(refund)}đ\n\nCentrix sẽ tiến hành xử lý và chuyển hoàn trong vòng 1–2 ngày làm việc. Nếu cần hỗ trợ thêm, Quý khách vui lòng phản hồi để Centrix phục vụ tốt hơn.\nTrân trọng.`;
     const rr2 = document.getElementById('refundResult'); if (rr2) rr2.style.display = 'block';
-    showNotification('Đã tính hoàn tiền!');
-    if (typeof showToast === 'function') showToast('Đã tính hoàn tiền!', 'success');
+    showNotification('Đã tính hoàn tiền!', 'success');
 }
 window.calculateRefund = calculateRefund;
 
@@ -232,3 +265,13 @@ function refreshRefundData() {
     }
 }
 window.refreshRefundData = refreshRefundData;
+
+// Debug function để force enable nút
+function forceEnableRefundBtn() {
+    const btn = document.getElementById('refundBtn');
+    if (btn) {
+        btn.disabled = false;
+        console.log('Force enabled refundBtn');
+    }
+}
+window.forceEnableRefundBtn = forceEnableRefundBtn;

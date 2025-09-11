@@ -60,6 +60,10 @@
                         <span class="nav-icon">🔄</span>
                         <span class="nav-label">Đổi gói</span>
                     </button>
+                    <button class="nav-item" onclick="switchTab('notes'); handleNavClick()" data-tab="notes">
+                        <span class="nav-icon">📋</span>
+                        <span class="nav-label">Ghi chú</span>
+                    </button>
                 </div>
                 
                 
@@ -726,6 +730,75 @@
                     </div>
                 </section>
 
+                <!-- NOTES SECTION -->
+                <section id="notes" class="tab-content">
+                    <div class="card notes-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="title-icon">📋</span>
+                                Ghi chú khách hàng
+                            </h3>
+                            <p class="card-subtitle">Tạo và quản lý ghi chú cho từng khách hàng</p>
+                        </div>
+                        
+                        <div class="card-content">
+                            <!-- Note Form -->
+                            <div class="note-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label class="form-label">Link chat khách hàng</label>
+                                        <div class="link-input-group">
+                                            <input id="chatLink" class="form-input" type="url" placeholder="https://m.me/khachhang hoặc https://zalo.me/..." />
+                                            <button type="button" class="btn-copy-link" onclick="copyCurrentChatLink()" title="Copy link">
+                                                <span class="btn-icon">📋</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label">Mã đơn hàng</label>
+                                        <input id="orderCode" class="form-input" type="text" placeholder="VD: DH001, ORDER123..." />
+                                    </div>
+                                    
+                                    <div class="form-group full-width">
+                                        <label class="form-label">Nội dung ghi chú</label>
+                                        <textarea id="noteContent" class="form-textarea" rows="4" placeholder="Nhập nội dung ghi chú cho khách hàng..."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary btn-large" onclick="createNote()">
+                                        <span class="btn-icon">➕</span>
+                                        Tạo ghi chú
+                                    </button>
+                                    <button class="btn btn-outline" onclick="clearNoteForm()">
+                                        <span class="btn-icon">🗑️</span>
+                                        Xóa form
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Notes List -->
+                            <div class="notes-list">
+                                <div class="notes-header">
+                                    <h4>Danh sách ghi chú</h4>
+                                    <div class="notes-stats">
+                                        <span id="notesCount">0 ghi chú</span>
+                                    </div>
+                                </div>
+                                
+                                <div id="notesList" class="notes-container">
+                                    <div class="empty-state">
+                                        <div class="empty-icon">📋</div>
+                                        <h4>Chưa có ghi chú</h4>
+                                        <p>Tạo ghi chú đầu tiên cho khách hàng</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
 
@@ -1003,6 +1076,7 @@
     <script src="js/modules/templates.js"></script>
     <script src="js/modules/upgrade.js"></script>
     <script src="js/modules/schedule.js"></script>
+    <script src="js/modules/notes.js"></script>
     <div id="versionBadge" class="version-badge">v0.0.2.5</div>
     <div id="toastContainer" class="toast-container"></div>
 </body>

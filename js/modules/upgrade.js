@@ -15,18 +15,24 @@ function formatDMY(d) {
     const currentSearch = document.getElementById('currentProductSearch');
     currentSearch?.addEventListener('input', () => { 
         searchProductsByName(currentSearch.value, 'currentProductSearchResults', 'selectCurrentProduct'); 
-        selectedCurrentProduct = null; 
-        updateUpgradeState(); 
-        updateUpgradeDisplay(); 
+        // Chỉ clear selection nếu input trống
+        if (!currentSearch.value.trim()) {
+            selectedCurrentProduct = null; 
+            updateUpgradeState(); 
+            updateUpgradeDisplay();
+        }
     });
     
     // New product search
     const newSearch = document.getElementById('newProductSearch');
     newSearch?.addEventListener('input', () => { 
         searchProductsByName(newSearch.value, 'newProductSearchResults', 'selectNewProduct'); 
-        selectedNewProduct = null; 
-        updateUpgradeState(); 
-        updateUpgradeDisplay(); 
+        // Chỉ clear selection nếu input trống
+        if (!newSearch.value.trim()) {
+            selectedNewProduct = null; 
+            updateUpgradeState(); 
+            updateUpgradeDisplay();
+        }
     });
     
     // Date inputs (rename meanings: ngày bắt đầu gói hiện tại, ngày đổi sang gói mới)
@@ -68,11 +74,14 @@ function selectNewProduct(id) {
 window.selectNewProduct = selectNewProduct;
 
 function updateUpgradeState() {
-    const ok = !!(selectedCurrentProduct && selectedNewProduct && 
-                  document.getElementById('upgradeStartDate').value && 
-                  document.getElementById('upgradeEndDate').value);
+    const startDate = document.getElementById('upgradeStartDate')?.value;
+    const endDate = document.getElementById('upgradeEndDate')?.value;
+    const ok = !!(selectedCurrentProduct && selectedNewProduct && startDate && endDate);
+    
     const btn = document.getElementById('upgradeBtn');
-    if (btn) btn.disabled = !ok;
+    if (btn) {
+        btn.disabled = !ok;
+    }
 }
 
 function updateUpgradeDisplay() {
@@ -98,17 +107,30 @@ function calculateUpgrade() {
     const startDate = new Date(document.getElementById('upgradeStartDate').value || '');
     const endDate = new Date(document.getElementById('upgradeEndDate').value || '');
     if (isNaN(startDate) || isNaN(endDate)) return showNotification('Chọn đủ ngày!', 'error');
-    if (endDate <= startDate) return showNotification('Ngày đổi gói phải sau ngày bắt đầu!', 'error');
+    if (endDate < startDate) return showNotification('Ngày đổi không thể trước ngày mua!', 'error');
 
     const daysUsed = Math.ceil((endDate - startDate) / (1000 * 3600 * 24));
     let currentTotalDays = selectedCurrentProduct.duration; if (selectedCurrentProduct.durationUnit === 'tháng') currentTotalDays *= 30;
     let newTotalDays = selectedNewProduct.duration; if (selectedNewProduct.durationUnit === 'tháng') newTotalDays *= 30;
     const remainingDays = currentTotalDays - daysUsed; if (remainingDays <= 0) { showNotification('Gói hiện tại đã hết hạn!', 'error'); return; }
-    const refundAmount = Math.round((remainingDays / currentTotalDays) * selectedCurrentProduct.price);
+    
+    // Kiểm tra nếu mua và đổi cùng ngày (chỉ khi daysUsed = 0)
+    const isSameDay = daysUsed === 0;
+    let refundAmount;
+    
+    if (isSameDay) {
+        // Hoàn 100% giá trị gói cũ nếu cùng ngày
+        refundAmount = selectedCurrentProduct.price;
+    } else {
+        // Tính theo tỷ lệ ngày còn lại như bình thường
+        refundAmount = Math.round((remainingDays / currentTotalDays) * selectedCurrentProduct.price);
+    }
+    
     const topUpAmount = Math.max(0, selectedNewProduct.price - refundAmount);
     const surplusAmount = Math.max(0, refundAmount - selectedNewProduct.price);
     const pricePerDayNew = newTotalDays > 0 ? (selectedNewProduct.price / newTotalDays) : 0;
-    const extraDays = pricePerDayNew > 0 ? Math.floor(surplusAmount / pricePerDayNew) : 0;
+    const extraDays = pricePerDayNew > 0 ? Math.round(surplusAmount / pricePerDayNew) : 0;
+    const totalDays = newTotalDays + extraDays;
 
     document.getElementById('upgradeBreakdown').innerHTML = `
         <div class="calc-row"><span class="calc-label">📦 Gói hiện tại:</span><span class="calc-value">${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})</span></div>
@@ -116,23 +138,24 @@ function calculateUpgrade() {
         <div class="calc-row"><span class="calc-label">📅 Khoảng tính:</span><span class="calc-value">${formatDMY(startDate)} → ${formatDMY(endDate)}</span></div>
         <div class="calc-row"><span class="calc-label">⏰ Đã sử dụng:</span><span class="calc-value">${daysUsed} ngày</span></div>
         <div class="calc-row"><span class="calc-label">📅 Còn lại:</span><span class="calc-value">${remainingDays} ngày</span></div>
+        ${isSameDay ? `<div class="calc-row"><span class="calc-label">🎉 Đặc biệt:</span><span class="calc-value text-success">Mua cùng ngày - Hoàn 100%</span></div>` : ''}
         <div class="calc-row"><span class="calc-label">💸 Giá trị còn lại (ước tính):</span><span class="calc-value text-success">${formatPrice(refundAmount)}đ</span></div>
         <div class="calc-row"><span class="calc-label">🆕 Gói muốn đổi:</span><span class="calc-value">${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})</span></div>
         <div class="calc-row"><span class="calc-label">💰 Giá gói mới:</span><span class="calc-value">${formatPrice(selectedNewProduct.price)}đ</span></div>
         <div class="calc-row"><span class="calc-label">🧮 SỐ TIỀN CẦN BÙ THÊM:</span><span class="calc-value ${topUpAmount > 0 ? 'text-danger' : 'text-success'}">${formatPrice(topUpAmount)}đ</span></div>
-        ${surplusAmount > 0 ? `<div class="calc-row"><span class="calc-label">⏳ Quy đổi thêm thời hạn:</span><span class="calc-value text-success">${extraDays} ngày</span></div>` : ''}`;
+        ${surplusAmount > 0 ? `<div class="calc-row"><span class="calc-label">⏳ Tổng thời hạn sau đổi:</span><span class="calc-value text-success">${totalDays} ngày</span></div>` : ''}`;
 
     // Kết luận theo từng trường hợp thanh toán
     let paymentConclusion = '';
     if (topUpAmount > 0) {
         paymentConclusion = `\n\nSố tiền cần thanh toán thêm: ${formatPrice(topUpAmount)}đ\nVui lòng thanh toán để hoàn tất đổi gói.`;
     } else if (surplusAmount > 0) {
-        paymentConclusion = `\n\nKhông cần thanh toán thêm. Phần chênh lệch được quy đổi thành ${extraDays} ngày sử dụng thêm.`;
+        paymentConclusion = `\n\nKhông cần thanh toán thêm. Tổng thời hạn sau đổi: ${totalDays} ngày.`;
     } else {
         paymentConclusion = `\n\nKhông cần thanh toán thêm. Giá hai gói tương đương trong giai đoạn tính.`;
     }
 
-    const customerMessage = `Kính gửi Quý khách,\n\nCentrix xin thông tin về việc đổi gói dịch vụ như sau:\n- Gói hiện tại: ${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})\n- Thời gian tính đổi: ${formatDMY(startDate)} → ${formatDMY(endDate)}\n- Số ngày đã dùng: ${daysUsed} ngày\n- Giá trị còn lại (ước tính) của gói hiện tại: ${formatPrice(refundAmount)}đ\n\nGói muốn đổi: ${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})\nGiá gói mới: ${formatPrice(selectedNewProduct.price)}đ${surplusAmount > 0 ? `\nPhần dư quy đổi thêm thời hạn: ${extraDays} ngày` : ''}${paymentConclusion}\n\nCentrix sẵn sàng hỗ trợ nếu Quý khách cần thêm thông tin.\nTrân trọng.`;
+    const customerMessage = `Kính gửi Quý khách,\n\nCentrix xin thông tin về việc đổi gói dịch vụ như sau:\n- Gói hiện tại: ${selectedCurrentProduct.name} (${selectedCurrentProduct.duration} ${selectedCurrentProduct.durationUnit})\n- Thời gian tính đổi: ${formatDMY(startDate)} → ${formatDMY(endDate)}\n- Số ngày đã dùng: ${daysUsed} ngày\n- Giá trị còn lại (ước tính) của gói hiện tại: ${formatPrice(refundAmount)}đ\n\nGói muốn đổi: ${selectedNewProduct.name} (${selectedNewProduct.duration} ${selectedNewProduct.durationUnit})\nGiá gói mới: ${formatPrice(selectedNewProduct.price)}đ${surplusAmount > 0 ? `\nTổng thời hạn sau đổi: ${totalDays} ngày` : ''}${paymentConclusion}\n\nCentrix sẵn sàng hỗ trợ nếu Quý khách cần thêm thông tin.\nTrân trọng.`;
 
     document.getElementById('upgradeCustomerContent').textContent = customerMessage;
     document.getElementById('upgradeResult').style.display = 'block';
@@ -169,3 +192,13 @@ function updateUpgradeTab() {
     if (upgradeForm) upgradeForm.style.display = has ? 'block' : 'none';
 }
 window.updateUpgradeTab = updateUpgradeTab;
+
+// Debug function để force enable nút
+function forceEnableUpgradeBtn() {
+    const btn = document.getElementById('upgradeBtn');
+    if (btn) {
+        btn.disabled = false;
+        console.log('Force enabled upgradeBtn');
+    }
+}
+window.forceEnableUpgradeBtn = forceEnableUpgradeBtn;
