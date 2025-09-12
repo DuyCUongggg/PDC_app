@@ -64,6 +64,10 @@
                         <span class="nav-icon">📋</span>
                         <span class="nav-label">Ghi chú</span>
                     </button>
+                    <button class="nav-item" onclick="switchTab('quote'); handleNavClick()" data-tab="quote">
+                        <span class="nav-icon">🧾</span>
+                        <span class="nav-label">Báo giá</span>
+                    </button>
                 </div>
                 
                 
@@ -799,6 +803,114 @@
                     </div>
                 </section>
 
+                <!-- QUOTE SECTION -->
+                <section id="quote" class="tab-content">
+                    <div class="card quote-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <span class="title-icon">💰</span>
+                                Tính báo giá
+                            </h3>
+                            <div class="card-actions">
+                                <button id="quoteRefreshBtn" type="button" class="btn btn-outline" onclick="refreshQuoteData()">
+                                    <span class="btn-icon">🔄</span>
+                                    Làm mới
+                                </button>
+                            </div>
+                            <p class="card-subtitle">Tính báo giá với phí bảo hành 10% và VAT 8%</p>
+                        </div>
+
+                        <div class="card-content">
+                            <div id="quoteEmptyState" class="empty-state">
+                                <div class="empty-icon">💰</div>
+                                <h4>Chưa có sản phẩm</h4>
+                                <p>Vui lòng thêm sản phẩm trước khi tính báo giá</p>
+                            </div>
+
+                            <div class="quote-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Chọn sản phẩm</label>
+                                        <div class="search-container">
+                                            <input id="quoteProductSearch" class="form-input" type="text" placeholder="Tìm kiếm sản phẩm..." />
+                                            <div id="quoteSearchResults" class="search-results"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Số lượng</label>
+                                        <input id="quoteQuantity" class="form-input" type="number" placeholder="1" min="1" step="1" value="1" />
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <button id="addProductBtn" class="btn btn-outline" disabled onclick="addProductToQuote()">
+                                            <span class="btn-icon">➕</span>
+                                            Thêm sản phẩm
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Danh sách sản phẩm đã chọn -->
+                                <div id="quoteProductList" class="quote-product-list" style="display:none;">
+                                    <div class="selected-header">
+                                        <h4>Danh sách sản phẩm đã chọn</h4>
+                                        <button class="btn btn-outline btn-sm" onclick="clearQuoteProducts()">
+                                            <span class="btn-icon">🗑️</span>
+                                            Xóa tất cả
+                                        </button>
+                                    </div>
+                                    <div id="selectedProductsList" class="selected-products-list"></div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <button id="quoteBtn" class="btn btn-primary btn-large" disabled onclick="calculateQuote()">
+                                        <span class="btn-icon">🧾</span>
+                                        Tính báo giá
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="quoteResult" class="quote-result" style="display:none;">
+                                <div class="result-header">
+                                    <h4>Kết quả báo giá</h4>
+                                    <div class="result-actions">
+                                        <button class="btn btn-outline" onclick="toggleQuoteView('breakdown')">
+                                            <span class="btn-icon">📊</span>
+                                            Chi tiết
+                                        </button>
+                                        <button class="btn btn-outline" onclick="toggleQuoteView('table')">
+                                            <span class="btn-icon">📋</span>
+                                            Bảng báo giá
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="result-sections">
+                                    <!-- Chi tiết tính toán -->
+                                    <div id="quoteBreakdownView" class="result-section active">
+                                        <h5>Chi tiết tính toán</h5>
+                                        <div id="quoteBreakdown" class="breakdown"></div>
+                                    </div>
+                                    
+                                    <!-- Bảng báo giá -->
+                                    <div id="quoteTableView" class="result-section">
+                                        <h5>Bảng báo giá chính thức</h5>
+                                        <div class="invoice-table-container">
+                                            <div id="invoiceTable" class="invoice-table"></div>
+                                        </div>
+                                        <div class="share-block">
+                                            <button class="btn btn-primary" onclick="copyInvoiceTable()">
+                                                <span class="btn-icon">📋</span>
+                                                Copy bảng cho Word
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
 
@@ -1077,6 +1189,7 @@
     <script src="js/modules/upgrade.js"></script>
     <script src="js/modules/schedule.js"></script>
     <script src="js/modules/notes.js"></script>
+    <script src="js/modules/quote.js"></script>
     <div id="versionBadge" class="version-badge">v0.0.2.5</div>
     <div id="toastContainer" class="toast-container"></div>
 </body>

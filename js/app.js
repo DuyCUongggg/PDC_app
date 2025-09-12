@@ -168,7 +168,8 @@
             'refund': { title: 'Tính hoàn tiền', subtitle: 'Tính toán số tiền hoàn lại cho khách hàng' },
             'upgrade': { title: 'Đổi gói sản phẩm', subtitle: 'Tính toán số tiền bù khi khách hàng đổi sang gói khác' },
             'schedule': { title: 'Lịch làm việc', subtitle: 'Quản lý lịch làm việc của team 4 người' },
-            'notes': { title: 'Ghi chú khách hàng', subtitle: 'Tạo và quản lý ghi chú cho từng khách hàng' }
+            'notes': { title: 'Ghi chú khách hàng', subtitle: 'Tạo và quản lý ghi chú cho từng khách hàng' },
+            'quote': { title: 'Tính báo giá', subtitle: 'Tính báo giá với phí bảo hành 10% và VAT 8%' }
         };
         
         const pageTitle = document.getElementById('pageTitle');
@@ -679,6 +680,7 @@
         if (typeof updateUpgradeTab === 'function') updateUpgradeTab(); 
         if (typeof updateScheduleTab === 'function') updateScheduleTab();
         if (typeof updateNotesTab === 'function') updateNotesTab(); 
+        if (typeof updateQuoteTab === 'function') updateQuoteTab(); 
     }
 
     // Set today's date to input
